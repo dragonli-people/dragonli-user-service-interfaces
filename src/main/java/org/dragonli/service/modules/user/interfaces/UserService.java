@@ -2,6 +2,7 @@ package org.dragonli.service.modules.user.interfaces;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public interface UserService {
 
@@ -39,9 +40,19 @@ public interface UserService {
 	Map<String, Object> generateValidateCodeByUserId(Long id) throws Exception ;
 
 	Map<String, Object> generateValidateCodeByUserId(String key) throws Exception;
-	
+
+	Map<String, Object> generateEmailCodeById(Long uid,String newEmail) throws Exception;
+	Map<String, Object> generatePhoneCodeById(Long uid,String phone) throws Exception;
 
 	Map<String, Object> generateLoginCode(String key);
 
+	List<Map<String,Object>> allCountries();
 
+	Map<String,Object> findCountryById(Long id);
+
+	Map<String, Object> authValidateAndRefresh(Map<String, Object> authDto,Boolean refreshTime,Boolean autoGenerate);
+
+	Map<String, Object> authValidateAndRefresh(Map<String, Object> authDto,Boolean refreshTime,Boolean autoGenerate, String privateKey,Long timeout);
+
+	Map<String, Object> authGenerate(Long uid);
 }
