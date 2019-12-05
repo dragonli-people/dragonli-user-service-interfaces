@@ -24,6 +24,7 @@ public interface UserService {
 	List<Map<String, Object>> getUserList(List<Long> idList);
 
 	Map<String, Object> findUser(Object key);
+    Map<String,Object> findUserByKeyword(String key);
 
 	Map<String, Object> resetPasswdById(Long id, String code) throws Exception ;
 
